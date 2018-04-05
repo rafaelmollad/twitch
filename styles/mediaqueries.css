@@ -57,11 +57,14 @@
 }
 
 @media screen and (min-width: 941px) {
+	
 	.channel {
-		width: calc(100%/3 - 20px);
+		width: calc(100%/3 - 40px);
 	}
 
 	.online-channels .channel:nth-child(odd) {
-		margin-right: 20px !important;
+		margin-right: 0 !important;
+		margin-left: 0 !important;
 	}
 }
+
