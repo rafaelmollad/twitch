@@ -6,7 +6,7 @@
 		height: 140px;
 	}
 
-	.online-channels {
+	.channels {
 		padding: 0 10px;	
 	}
 }
@@ -35,11 +35,11 @@
 		height: 160px;
 	}
 
-	.online-channels .channel:nth-child(odd) {
+	.channels .channel:nth-child(odd) {
 		margin-right: 20px !important;
 	}
 
-	.online-channels {
+	.channels {
 		padding: 0;
 	}
 }
@@ -62,7 +62,7 @@
 		width: calc(100%/3 - 40px);
 	}
 
-	.online-channels .channel:nth-child(odd) {
+	.channels .channel:nth-child(odd) {
 		margin-right: 0 !important;
 		margin-left: 0 !important;
 	}
