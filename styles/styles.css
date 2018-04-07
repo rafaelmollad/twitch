@@ -9,6 +9,10 @@ body {
 	font-size: 18px;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* HEADER */
 
 header {
@@ -97,10 +101,11 @@ header {
 .channel-image {
 	width: 100%;
 	height: calc(100% - 35px);
+	border-radius: 1.4px;
 }
 
 .default {
-	background: lightgray;
+	background: seashell;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,5 +121,5 @@ header {
 .users span,
 .views i,
 .views span {
-	color: #aaa;
+	color: #FFF;
 }
