@@ -12,7 +12,7 @@ channels.forEach(function(channel, index) {
 			$( '#' + channel ).addClass( "online" );
 
 			// Change channel info div to green indicating that this channel is streaming now
-			$("#" + channel + ' .channel-info').css( "background-color", "lightgreen" );
+			$("#" + channel + ' .channel-info').css( "background-color", "#2ecc71" );
 
 			// Add more info about online channels
 			$('#' + channel + ' .views').append("<span>" + data.stream.channel.views + "</span");
@@ -24,7 +24,7 @@ channels.forEach(function(channel, index) {
 			$('#' + channel).addClass( "offline" );
 
 			// Change channel info div to red indicating that this channel is streaming now
-			$("#" + channel + ' .channel-info').css( "background-color", "indianred" );
+			$("#" + channel + ' .channel-info').css( "background-color", "#e74c3c" );
 
 		}
 
@@ -34,20 +34,79 @@ channels.forEach(function(channel, index) {
 
 // When online button is clicked
 $( "#online" ).click(function() {
-	
-	// Remove background from previous section
-	$("#all").removeClass("selected");
 
-	// Add background to online
-	$(this).addClass("selected");
+	unselectSiblings( $(this) );
 
-	// Remove elements with class .offline
-	$( ".offline" ).remove();
+	checkClass( $(this) );
 
+	showOnlineChannels();
 });
 
 // When offline button is clicked
-	// Remove elements with class .offline
+$( "#offline" ).click(function() {
+
+	unselectSiblings( $(this) );
+
+	checkClass( $(this) );
+
+	showOfflineChannels();
+
+});
 
 // When all button is clicked
-	// Show all elements
+$( "#all").click(function() {
+
+	unselectSiblings( $(this) );
+
+	checkClass( $(this) );
+
+	showAllChannels();
+
+});
+
+// If the siblings of 'siblingClicked' are selected, then we unselect them
+function unselectSiblings(siblingClicked) {
+
+	if ( $( siblingClicked ).siblings().hasClass("selected")) {
+		$( siblingClicked ).siblings().removeClass("selected");
+	}
+}
+
+// Check that the same class isn't added again
+function checkClass( channelState ) {
+	if ( !$( channelState ).hasClass("selected") ) {
+		$( channelState ).addClass("selected");
+	}
+}
+
+// Shows all channels 
+function showAllChannels() {
+
+	// Show online channels
+	$( ".online" ).show();
+
+	// Show offline channels
+	$( ".offline" ).show();
+}
+
+
+// Shows online channels
+function showOnlineChannels() {
+	
+	// Show online channels
+	$( ".online" ).show();
+
+	// Show offline channels
+	$( ".offline" ).hide();
+}
+
+// Shows offline channels
+function showOfflineChannels() {
+
+	// Show offline channels
+	$( ".offline ").show();
+
+	// Hide online channels
+	$(" .online ").hide();
+}
+
